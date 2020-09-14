@@ -11,7 +11,6 @@
 }
 
 body {
-    /* more on this crazy alphanumerical value in a minute! */
     color: var(--tertiary-color);
     font-family: Helvetica, Arial, sans-serif;
     }
@@ -342,8 +341,52 @@ section {
       flex: 1;
   }
 
-  .trainer img {
+  .trainer-img {
       width: 100%;
+      min-height: 300px;
+      display: flex;
+      padding: 15px;
+      align-items: flex-end;
+      position: relative;
+      overflow: hidden;
+  }
+
+  .trainer-img:hover::after {
+      opacity: 1;
+  }
+
+  .trainer-img::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(rgba(252, 225, 56, 0.3), var(--secondary-color));
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: .5s;
+  }
+
+  .trainer:hover .trainer-img h3, .trainer:hover .trainer-img h4 {
+      top: 0px;
+}
+
+ 
+  .trainer-img h3 {
+      position: relative;
+      z-index: 9998;
+      font-size: 28px;
+      margin-bottom: 5px;
+      top: 200px;
+      transition: 0.6s;
+   }
+
+  .trainer-img h4 {
+      position: relative;
+      z-index: 9997;
+      font-size: 22px;
+      top: 200px;
+      transition: 0.6s;
   }
 
   .trainer-bio {
@@ -366,15 +409,32 @@ section {
 
   .trainer-bio h3 {
       font-size: 28px;
+      display: none;
   }
 
   .trainer-bio h4 {
       font-weight: lighter;
       font-size: 22px;
       margin-bottom: 15px;
+      display: none;
   }
 
   .trainer-bio p {
+  }
+
+  .trainer-1 {
+      background-image: url(../images/trainer-1.jpg);
+      background-size: cover;
+  }
+
+  .trainer-2 {
+      background-image: url(../images/trainer-2.jpg);
+      background-size: cover;
+  }
+
+  .trainer-3 {
+      background-image: url(../images/trainer-3.jpg);
+      background-size: cover;
   }
 
   .contact {
@@ -583,6 +643,14 @@ section {
 
     .step-text {
         flex: 100%;
+    }
+
+    .trainer-img h3, .trainer-img h4, .trainer-img::after {
+        display: none;
+    }
+
+    .trainer-bio h3, .trainer-bio h4 {
+        display: block;
     }
 
     .service-grid-container {
